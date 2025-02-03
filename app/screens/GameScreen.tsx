@@ -171,7 +171,6 @@ const styles = StyleSheet.create({
     backgroundSize: "cover", 
   },
   grid: {
-    flex: 1,
     width: '100%',
     maxWidth: 360, 
     justifyContent: "center",
