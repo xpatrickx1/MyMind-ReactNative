@@ -113,7 +113,7 @@ export default function GameScreen({ route, navigation }) {
   };
 
   const getCardStyle = (cardsCount) => {
-    let cardWidth = 150; // за замовчуванням для 4 карт
+    let cardWidth = 150;
     if (cardsCount === 4) {
       cardWidth = 150;
     } else if (cardsCount === 8) {
@@ -125,7 +125,8 @@ export default function GameScreen({ route, navigation }) {
   };
 
   return (
-    <ImageBackground source={backgroundAssets[gameId]} resizeMode="cover" style={styles.background}>
+    <View style={styles.container}>
+      <ImageBackground source={backgroundAssets[gameId]} resizeMode="cover" style={styles.background}></ImageBackground>
       <View style={styles.grid}>
         {cards.map((card) => (
           <TouchableOpacity
@@ -148,9 +149,8 @@ export default function GameScreen({ route, navigation }) {
           navigation={navigation}
           onClose={() => setGameStatus(null)}
         />
-      
       </View>
-    </ImageBackground>
+    </View>
   );
 }
 
@@ -162,23 +162,23 @@ const styles = StyleSheet.create({
   button: { marginTop: 20, backgroundColor: "#3498db", padding: 10, borderRadius: 5 },
   buttonText: { color: "white", fontSize: 18 },
   background: {
-    flex: 1,
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
     width: '100%',
-    maxWidth: '100%', 
     backgroundSize: "cover", 
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "row", 
-    padding: 40,
   },
   grid: {
     flex: 1,
     width: '100%',
-    maxWidth: 350, 
-    backgroundSize: "cover", 
+    maxWidth: 360, 
     justifyContent: "center",
-    gap: 15,
+    alignItems: "center",
     flexDirection: "row", 
+    gap: 15,
     flexWrap: "wrap", 
+    paddingVertical: 40,
   },
 });

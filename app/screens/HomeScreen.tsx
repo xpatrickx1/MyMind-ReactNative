@@ -25,14 +25,15 @@ function HomeScreen({ navigation }) {
   }, [navigation]);
 
   return (
-    <ImageBackground source={image} resizeMode="cover" style={styles.background}>
+    <View style={styles.container}>
+      <ImageBackground source={image} resizeMode="cover" style={styles.background}></ImageBackground>
       <View style={styles.grid}>
         <CardGrid
           data={games}
           onPress={(game) => navigation.navigate("Game", { gameId: `game${game.id}` })}
         />
       </View>
-    </ImageBackground>
+    </View>
   );
 }
 
@@ -40,17 +41,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%', 
+    justifyContent: "center",
+    alignItems: "center",
   },
   background: {
-    flex: 1,
+    position: 'absolute',
     width: '100%',
     maxWidth: '100%', 
-    backgroundSize: "cover", 
-    justifyContent: "center",
-    gap: 20,
-    padding: 40,
-    flexDirection: "row", 
-    flexWrap: "wrap", 
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
   },
   grid: { 
     flex: 1,
@@ -60,6 +61,8 @@ const styles = StyleSheet.create({
     flexDirection: "row", 
     flexWrap: "wrap", 
     justifyContent: "center", 
+    alignItems: "center",
+    paddingVertical: 40,
     backgroundImage: 'url(' +  require("../../assets/images/hsbg.png") + ')' },
   cardImage: { width: "100%", height: "100%", borderRadius: 10 },
   card: { width: 130, height: 130, margin: 5 },
